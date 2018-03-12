@@ -1,0 +1,10 @@
+<div *ngIf="battles">
+  <div *ngFor="let battle of battles">
+    <div *ngFor="let opponent of battle.opponent">
+      <div *ngIf="battle.teamSize===1">
+        <span [ngStyle]="{color: battle.teamCrowns > battle.opponentCrowns ? 'green' : 'red'}">{{opponent.name}}</span>
+        <app-deck [team]="battle.team[0].deck" [opponent]="battle.opponent[0].deck"></app-deck>
+      </div>
+    </div>
+  </div>
+</div>
