@@ -14,10 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const appRoutes: Routes = [
   { path: 'player', component: PlayerComponent },
   { path: 'battles',      component: BattlesComponent },
-  { path: '',
-    redirectTo: '/player',
-    pathMatch: 'full'
-  },
+  { path: '', redirectTo: '/player', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -34,7 +31,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }
+      { enableTracing: false }
     )
   ],
   providers: [

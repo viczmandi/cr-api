@@ -23,11 +23,11 @@ export class CrApiService {
 
   constructor(private http: HttpClient) { }
 
-  getPlayer(): Observable<any> {
-    return this.http.get<any>(`${this.crApiUrl}${this.player}${this.tag}`, httpOptions);
+  getPlayer(): Observable<Object> {
+    return this.http.get<Object>(`${this.crApiUrl}${this.player}${this.tag}`, httpOptions);
   }
 
-  getBattles(): Observable<any> {
-    return this.http.get<any>(`${this.crApiUrl}${this.player}${this.tag}${this.battles}`, httpOptions);
+  getBattles() {
+    return this.http.get(`${this.crApiUrl}${this.player}${this.tag}${this.battles}`, httpOptions);
   }
 }

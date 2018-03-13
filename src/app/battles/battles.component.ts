@@ -8,7 +8,7 @@ import { CrApiService } from '../cr-api.service';
 })
 export class BattlesComponent implements OnInit {
 
-  battles: any;
+  battles: Object;
 
   constructor(private crApiService: CrApiService) { }
 

@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DeckComponent implements OnInit {
 
-  @Input() team: any;
-  @Input() opponent: any;
+  @Input() team: Object;
+  @Input() opponent: Object;
   show: boolean = false;
 
   constructor() { }
