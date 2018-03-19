@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 
@@ -10,11 +11,13 @@ import { PlayerComponent } from './player/player.component';
 import { BattlesComponent } from './battles/battles.component';
 import { DeckComponent } from './deck/deck.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
+  { path: 'search', component: SearchComponent },
   { path: 'player', component: PlayerComponent },
   { path: 'battles',      component: BattlesComponent },
-  { path: '', redirectTo: '/player', pathMatch: 'full'},
+  { path: '', redirectTo: '/search', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -24,7 +27,8 @@ const appRoutes: Routes = [
     PlayerComponent,
     BattlesComponent,
     DeckComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false }
-    )
+    ),
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [
     CrApiService

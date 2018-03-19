@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { CrApiService } from '../cr-api.service';
 
 @Component({
@@ -8,16 +9,24 @@ import { CrApiService } from '../cr-api.service';
 })
 export class PlayerComponent implements OnInit {
 
-  player: any;
+  player: Object;
+  search: string;
 
-  constructor(private crApiService: CrApiService) { }
+  constructor(
+    private crApiService: CrApiService,
+    private route: ActivatedRoute
+  ) { 
+    this.route.queryParams.subscribe(params => {
+      this.search = params["search"];
+  });
+  }
 
   ngOnInit() {
-    this.getPlayer();
+    this.getPlayer();    
   }
 
   getPlayer() {
-    this.crApiService.getPlayer().subscribe(
+    this.crApiService.getPlayer(this.search).subscribe(
       player => this.player = player,
       err => console.error(err),
       () => console.log('done loading player'));

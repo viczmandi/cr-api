@@ -13,13 +13,13 @@ export class BattlesComponent implements OnInit {
   constructor(private crApiService: CrApiService) { }
 
   ngOnInit() {
-    this.getBattles();
+    // this.getBattles();
   }
 
-  getBattles() {
-    this.crApiService.getBattles().subscribe(
-      battles => this.battles = battles,
-      err => console.error(err),
-      () => console.log('done loading battles'));
-  }
+  // getBattles() {
+  //   this.crApiService.getBattles().subscribe(
+  //     battles => this.battles = battles,
+  //     err => console.error(err),
+  //     () => console.log('done loading battles'));
+  // }
 }

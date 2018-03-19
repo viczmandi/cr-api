@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-// import 'rxjs/add/operator/timeoutWith';
-// import 'rxjs/add/observable/throw';
-// import { catchError, map, tap } from 'rxjs/operators';
-// import { of } from 'rxjs/Observable/of';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -15,19 +11,16 @@ const httpOptions = {
 @Injectable()
 export class CrApiService {
 
-  private crApiUrl = 'http://api.cr-api.com';
-  private player = '/player';
-  private tag = '/98PURRRVV';
-  private battles = '/battles';
+  private API_URL = 'http://api.cr-api.com/player';
   
-
   constructor(private http: HttpClient) { }
 
-  getPlayer(): Observable<Object> {
-    return this.http.get<Object>(`${this.crApiUrl}${this.player}${this.tag}`, httpOptions);
+  getPlayer(playerTag: string) {
+    this.setPlayerTag(playerTag);
+    return this.http.get(`${this.API_URL}/${localStorage.getItem('playerTag')}`, httpOptions);
   }
 
-  getBattles() {
-    return this.http.get(`${this.crApiUrl}${this.player}${this.tag}${this.battles}`, httpOptions);
+  setPlayerTag(playerTag: string) {
+    localStorage.setItem('playerTag', playerTag);
   }
 }
