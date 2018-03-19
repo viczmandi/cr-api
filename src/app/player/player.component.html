@@ -1,9 +1,106 @@
 <div *ngIf="player">
-  tag: {{player.tag}} 
-  <br />
-  name: {{player.name}} 
-  <br />
-  arena: {{player.arena.name}}
+  <div class="card-deck">
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Player</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Name</h5>
+          <p class="card-text">{{player.name}}</p>
+        </div>
+        <div class="card-body text-dark">
+            <h5 class="card-title">Tag</h5>
+            <p class="card-text">{{player.tag}}</p>
+        </div>
+        <div class="card-body text-dark">
+            <h5 class="card-title">Trophies</h5>
+            <p class="card-text">{{player.trophies}}</p>
+        </div>
+        <div class="card-body text-dark">
+            <h5 class="card-title">Level</h5>
+            <p class="card-text">{{player.stats.level}}</p>
+        </div>
+        <div class="card-body text-dark" *ngIf="player.rank">
+            <h5 class="card-title">Rank</h5>
+            <p class="card-text">{{player.rank}}</p>
+        </div>
+      </div>
+
+    <div class="card border-dark mb-3" style="width: 18rem;">
+      <div class="card-header">Clan</div>
+      <img class="card-img-top" [src]="player.clan.badge.image" alt="Card image cap">
+      <div class="card-body text-dark">
+          <h5 class="card-title">Name</h5>
+          <p class="card-text">{{player.clan.name}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Tag</h5>
+          <p class="card-text">{{player.clan.tag}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Role</h5>
+          <p class="card-text">{{player.clan.role}}</p>
+      </div>
+    </div>
+
+    <div class="card border-dark mb-3" style="width: 18rem;">
+      <div class="card-header">Statistics</div>
+      <img class="card-img-top" [src]="player.stats.favoriteCard.icon" alt="Card image cap">
+      <div class="card-body text-dark">
+          <h5 class="card-title">Max trophies</h5>
+          <p class="card-text">{{player.stats.maxTrophies}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Three crown wins</h5>
+          <p class="card-text">{{player.stats.threeCrownWins}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Favorite card</h5>
+          <p class="card-text">{{player.stats.favoriteCard.name}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Cards found</h5>
+          <p class="card-text">{{player.stats.cardsFound}}</p>
+      </div>
+    </div>
+
+    <div class="card border-dark mb-3" style="width: 18rem;">
+      <div class="card-header">Games</div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Total</h5>
+          <p class="card-text">{{player.games.total}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Wins</h5>
+          <p class="card-text">{{player.games.wins}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Wins percent</h5>
+          <p class="card-text">{{player.games.winsPercent * 100 | number}}%</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Losses</h5>
+          <p class="card-text">{{player.games.losses}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Losses percent</h5>
+          <p class="card-text">{{player.games.lossesPercent * 100 | number}}%</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Draws</h5>
+          <p class="card-text">{{player.games.draws}}</p>
+      </div>
+      <div class="card-body text-dark">
+          <h5 class="card-title">Draws percent</h5>
+          <p class="card-text">{{player.games.drawsPercent * 100 | number}}%</p>
+      </div>
+    </div>
+
+    <div class="card border-dark mb-3" style="width: 18rem;">
+      <div class="card-header">Chest cycle</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let chest of player.chestCycle.upcoming">{{chest}}</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <!-- <pre>{{player | json}}</pre> -->

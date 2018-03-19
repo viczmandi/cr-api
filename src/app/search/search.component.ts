@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    localStorage.setItem('playerTag', 'asd');
   }
 
   onSubmit(form: any) {

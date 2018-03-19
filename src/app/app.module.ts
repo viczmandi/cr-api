@@ -12,11 +12,12 @@ import { BattlesComponent } from './battles/battles.component';
 import { DeckComponent } from './deck/deck.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchComponent } from './search/search.component';
+import { VisitorGuard } from './visitor-guard';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'player', component: PlayerComponent },
-  { path: 'battles',      component: BattlesComponent },
+  { path: 'player', component: PlayerComponent, canActivate: [VisitorGuard] },
+  { path: 'battles', component: BattlesComponent },
   { path: '', redirectTo: '/search', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
   providers: [
-    CrApiService
+    CrApiService,
+    VisitorGuard
   ],
   bootstrap: [AppComponent]
 })
