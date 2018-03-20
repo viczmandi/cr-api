@@ -8,7 +8,7 @@ export class VisitorGuard implements CanActivate {
     constructor(private router: Router) { }
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if(localStorage.getItem('playerTag')){
+        if(localStorage.getItem('playerData')){
             return true;
         }
         return false;

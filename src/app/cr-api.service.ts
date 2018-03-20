@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { pipe } from 'rxjs/util/pipe';
+import { tap } from 'rxjs/operators/tap';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -15,10 +17,20 @@ export class CrApiService {
   
   constructor(private http: HttpClient) { }
 
-  getPlayer(playerTag: string) {
-    if(!playerTag) {
-      playerTag = localStorage.getItem('playerTag');
-    }
-    return this.http.get(`${this.API_URL}/${playerTag}`, httpOptions);
+  getPlayerData(playerTag: string) {
+    console.log("Player data fetching started in service");
+    // return this.http.get(`${this.API_URL}/${playerTag}`, httpOptions).subscribe(
+    //   playerData => localStorage.setItem('playerData', JSON.stringify(playerData)),
+    //   err => console.error(err),
+    //   () => console.log(`done loading player's data`));
+
+    // return this.http.get(`${this.API_URL}/${playerTag}`, httpOptions)
+    //   .toPromise()
+    //   .then(playerData => localStorage.setItem('playerData', JSON.stringify(playerData)));
+
+    return this.http.get(`${this.API_URL}/${playerTag}`, httpOptions)
+      .pipe(
+        tap(playerData => localStorage.setItem('playerData', JSON.stringify(playerData)))
+      );
   }
 }

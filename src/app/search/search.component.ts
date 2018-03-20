@@ -9,15 +9,13 @@ import { CrApiService } from '../cr-api.service';
 })
 export class SearchComponent implements OnInit {
 
-  // @HostBinding('attr.class') cssClass = 'tab-pane fade show';
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, private crApiService: CrApiService) { }
 
   ngOnInit() { }
 
   onSubmit(form: any) {
-    localStorage.setItem('playerTag', form.search);
-    this.router.navigate(["player"]);
+    this.crApiService.getPlayerData(form.search).subscribe(() => {
+      this.router.navigate(["player"]);
+    });
   }
-
 }
