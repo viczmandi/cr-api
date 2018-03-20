@@ -70,27 +70,21 @@
       </div>
       <div class="card-body text-dark">
           <h5 class="card-title">Wins</h5>
-          <p class="card-text">{{player.games.wins}}</p>
-      </div>
-      <div class="card-body text-dark">
-          <h5 class="card-title">Wins percent</h5>
-          <p class="card-text">{{player.games.winsPercent * 100 | number}}%</p>
+          <p class="card-text">{{player.games.wins}}
+            <span class="badge badge-secondary">{{player.games.winsPercent * 100 | number}}%</span>
+        </p>
       </div>
       <div class="card-body text-dark">
           <h5 class="card-title">Losses</h5>
-          <p class="card-text">{{player.games.losses}}</p>
-      </div>
-      <div class="card-body text-dark">
-          <h5 class="card-title">Losses percent</h5>
-          <p class="card-text">{{player.games.lossesPercent * 100 | number}}%</p>
+          <p class="card-text">{{player.games.losses}}
+            <span class="badge badge-secondary">{{player.games.lossesPercent * 100 | number}}%</span>
+          </p>
       </div>
       <div class="card-body text-dark">
           <h5 class="card-title">Draws</h5>
-          <p class="card-text">{{player.games.draws}}</p>
-      </div>
-      <div class="card-body text-dark">
-          <h5 class="card-title">Draws percent</h5>
-          <p class="card-text">{{player.games.drawsPercent * 100 | number}}%</p>
+          <p class="card-text">{{player.games.draws}}
+            <span class="badge badge-secondary">{{player.games.drawsPercent * 100 | number}}%</span>
+          </p>
       </div>
     </div>
 

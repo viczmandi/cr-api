@@ -1,5 +1,5 @@
-<button (click)="showDecks()">Show</button>
-<div *ngIf="show">
-  <img *ngFor="let card of team" [src]="card.icon" alt="card.name" height="50"> vs 
-  <img *ngFor="let card of opponent" [src]="card.icon" alt="card.name" height="50">
+<div class="d-flex justify-content-center">
+  <img *ngFor="let card of team" [src]="card.icon" [alt]="card.name" height="80">
+  <span class="align-self-center badge badge-danger">VS</span> 
+  <img *ngFor="let card of opponent" [src]="card.icon" [alt]="card.name" height="80">
 </div>

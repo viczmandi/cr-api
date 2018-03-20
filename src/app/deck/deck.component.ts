@@ -9,15 +9,9 @@ export class DeckComponent implements OnInit {
 
   @Input() team: Object;
   @Input() opponent: Object;
-  show: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  showDecks(): void {
-    this.show = !this.show;
-  }
-
 }

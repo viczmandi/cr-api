@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, NavigationExtras } from "@angular/router";
 import { CrApiService } from '../cr-api.service';
 
@@ -9,19 +9,15 @@ import { CrApiService } from '../cr-api.service';
 })
 export class SearchComponent implements OnInit {
 
+  // @HostBinding('attr.class') cssClass = 'tab-pane fade show';
+
   constructor(private router: Router) { }
 
-  ngOnInit() {
-    localStorage.setItem('playerTag', 'asd');
-  }
+  ngOnInit() { }
 
   onSubmit(form: any) {
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-          "search": form.search
-      }
-    };
-    this.router.navigate(["player"], navigationExtras);
+    localStorage.setItem('playerTag', form.search);
+    this.router.navigate(["player"]);
   }
 
 }

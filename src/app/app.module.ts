@@ -17,7 +17,7 @@ import { VisitorGuard } from './visitor-guard';
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'player', component: PlayerComponent, canActivate: [VisitorGuard] },
-  { path: 'battles', component: BattlesComponent },
+  { path: 'battles', component: BattlesComponent, canActivate: [VisitorGuard]  },
   { path: '', redirectTo: '/search', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];

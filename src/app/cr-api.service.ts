@@ -12,25 +12,13 @@ const httpOptions = {
 export class CrApiService {
 
   private API_URL = 'http://api.cr-api.com/player';
-  private playerTag: string; // 880089QLU
   
   constructor(private http: HttpClient) { }
 
   getPlayer(playerTag: string) {
-    this.setPlayerTag(playerTag);
-    if(!this.playerTag) {
-      this.playerTag = localStorage.getItem('playerTag');
-    }
-    return this.http.get(`${this.API_URL}/${this.playerTag}`, httpOptions);
-  }
-
-  setPlayerTag(playerTag: string) {
-    console.log('setPlayerTag 1');
     if(!playerTag) {
-      return;
+      playerTag = localStorage.getItem('playerTag');
     }
-    console.log('setPlayerTag 2');
-    localStorage.setItem('playerTag', playerTag);
-    this.playerTag = playerTag;
+    return this.http.get(`${this.API_URL}/${playerTag}`, httpOptions);
   }
 }
