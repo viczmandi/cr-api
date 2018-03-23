@@ -1,0 +1,9 @@
+<!-- <pre>{{ cards | json }}</pre> -->
+
+<!-- <div *ngFor="let card of cards">
+  <app-deck *ngIf="card.opponent[0].trophyChange > 0" [opponent]="card.opponent[0].deck"></app-deck>
+</div> -->
+
+<div *ngFor="let card of countedCards">
+    <img [src]="card.icon" height="80"><span>{{card.counter}}</span>
+</div>

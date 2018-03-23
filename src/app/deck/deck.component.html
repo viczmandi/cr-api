@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-  <img *ngFor="let card of team" [src]="card.icon" [alt]="card.name" height="80">
-  <span class="align-self-center badge badge-danger">VS</span> 
-  <img *ngFor="let card of opponent" [src]="card.icon" [alt]="card.name" height="80">
+  <span *ngIf="team"><img *ngFor="let card of team" [src]="card.icon" [alt]="card.name" height="80"></span>
+  <span *ngIf="team && opponent" class="align-self-center badge badge-danger">VS</span> 
+  <span *ngIf="opponent"><img *ngFor="let card of opponent" [src]="card.icon" [alt]="card.name" height="80"></span>
 </div>

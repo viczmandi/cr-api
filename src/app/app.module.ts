@@ -13,11 +13,13 @@ import { DeckComponent } from './deck/deck.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchComponent } from './search/search.component';
 import { VisitorGuard } from './visitor-guard';
+import { DominantComponent } from './dominant/dominant.component';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'player', component: PlayerComponent, canActivate: [VisitorGuard] },
   { path: 'battles', component: BattlesComponent, canActivate: [VisitorGuard]  },
+  { path: 'dominant', component: DominantComponent, canActivate: [VisitorGuard]  },
   { path: '', redirectTo: '/search', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     BattlesComponent,
     DeckComponent,
     PageNotFoundComponent,
-    SearchComponent
+    SearchComponent,
+    DominantComponent
   ],
   imports: [
     BrowserModule,
