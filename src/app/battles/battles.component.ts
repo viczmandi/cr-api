@@ -8,7 +8,7 @@ import { CrApiService } from '../cr-api.service';
 })
 export class BattlesComponent implements OnInit {
 
-  battles: Object;
+  battles: Array<Object>;
 
   constructor(private crApiService: CrApiService) { }
 
@@ -17,6 +17,6 @@ export class BattlesComponent implements OnInit {
   }
 
   getBattles() {
-    this.battles = JSON.parse(localStorage.getItem('playerData'));
+    this.battles = JSON.parse(localStorage.getItem('playerData'))['battles'];
   }
 }

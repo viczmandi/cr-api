@@ -1,21 +1,20 @@
 <div *ngIf="battles" id="accordion">
-  <div *ngFor="let battle of battles.battles; let i = index" class="card">
+  <div *ngFor="let battle of battles; let i = index" class="card">
     <div *ngIf="battle.teamSize === 1">
-    <div *ngFor="let opponent of battle.opponent">
-      <div class="card-header" id="headingOne" [ngStyle]="{'background-color': battle.teamCrowns > battle.opponentCrowns ? '#99ff99' : '#ff9999'}"
-          data-toggle="collapse" [attr.data-target]="'#collapse-' + i" [attr.aria-expanded]="false" [attr.aria-controls] = "'collapse-' + i">
-        <h5 class="mb-0">{{opponent.name}}</h5>
-        <div>Result: {{battle.teamCrowns}} - {{battle.opponentCrowns}}</div>
-        <div>Trophy change: {{battle.team[0].trophyChange}}</div>
-      </div>
-
-      <div [attr.id]="'collapse-' + i" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body">
-            <app-deck [team]="battle.team[0].deck" [opponent]="battle.opponent[0].deck"></app-deck>
+      <div *ngFor="let opponent of battle.opponent">
+        <div class="card-header" id="headingOne" [ngStyle]="{'background-color': battle.teamCrowns > battle.opponentCrowns ? '#99ff99' : '#ff9999'}"
+            data-toggle="collapse" [attr.data-target]="'#collapse-' + i" [attr.aria-expanded]="false" [attr.aria-controls] = "'collapse-' + i">
+          <h5 class="mb-0">{{opponent.name}}</h5>
+          <div>Result: {{battle.teamCrowns}} - {{battle.opponentCrowns}}</div>
+          <div>Trophy change: {{battle.team[0].trophyChange}}</div>
+        </div>
+        <div [attr.id]="'collapse-' + i" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+              <app-deck [team]="battle.team[0].deck" [opponent]="battle.opponent[0].deck"></app-deck>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </div>
 
