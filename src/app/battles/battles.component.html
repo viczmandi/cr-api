@@ -1,5 +1,6 @@
 <div *ngIf="battles" id="accordion">
   <div *ngFor="let battle of battles.battles; let i = index" class="card">
+    <div *ngIf="battle.teamSize === 1">
     <div *ngFor="let opponent of battle.opponent">
       <div class="card-header" id="headingOne" [ngStyle]="{'background-color': battle.teamCrowns > battle.opponentCrowns ? '#99ff99' : '#ff9999'}"
           data-toggle="collapse" [attr.data-target]="'#collapse-' + i" [attr.aria-expanded]="false" [attr.aria-controls] = "'collapse-' + i">
@@ -14,6 +15,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 

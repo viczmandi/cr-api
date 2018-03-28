@@ -24,12 +24,12 @@ export class DominantComponent implements OnInit {
     this.filterDecks();
     this.filterCards();
     this.countCards();
-    this.log();
+    // this.log();
   }
 
   filterDecks() {
     this.data.forEach(element => {
-      if(element['opponent'][0]['trophyChange'] > 0) {
+      if(element['opponent'][0]['trophyChange'] > 0 && element['teamSize'] === 1) {
         this.cardDecks.push(element['opponent'][0]['deck']);
       }
     });
