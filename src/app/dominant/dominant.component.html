@@ -1,6 +1,8 @@
 <div *ngFor="let card of countedCards" class="card" style="float: left">
-  <img class="card-img-top" [src]="card.icon" alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">Lost against: {{card.counter}}</p>
+  <div *ngIf="card.counter > 1">
+    <img class="card-img-top" [src]="card.icon" [alt]="card.name">
+    <div class="card-body">
+      <p class="card-text">Lost to {{card.name}} <strong>{{card.counter}}x</strong></p>
+    </div>
   </div>
 </div>

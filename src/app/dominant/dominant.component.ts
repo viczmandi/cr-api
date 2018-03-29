@@ -40,7 +40,7 @@ export class DominantComponent implements OnInit {
       for (const key in element) {
         if (element.hasOwnProperty(key)) {
           const elm = element[key];
-          this.filteredCards.push({icon: elm['icon'], counter: 1});
+          this.filteredCards.push({icon: elm['icon'], name: elm['name'], counter: 1});
         }
       }
     });
