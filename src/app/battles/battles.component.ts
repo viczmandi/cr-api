@@ -17,6 +17,6 @@ export class BattlesComponent implements OnInit {
   }
 
   getBattles() {
-    this.battles = JSON.parse(localStorage.getItem('playerData'))['battles'];
+    this.battles = JSON.parse(sessionStorage.getItem('playerData'))['battles'];
   }
 }

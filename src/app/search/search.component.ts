@@ -11,9 +11,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private router: Router, private crApiService: CrApiService) { }
 
-  ngOnInit() { 
-    document.body.classList.add('bg-img');
-  }
+  ngOnInit() { }
 
   onSubmit(form: any) {
     this.crApiService.getPlayerData(form.search).subscribe(() => {

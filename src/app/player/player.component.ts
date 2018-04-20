@@ -16,6 +16,6 @@ export class PlayerComponent implements OnInit {
   }
 
   getPlayer() {
-    this.player = JSON.parse(localStorage.getItem('playerData'));
+    this.player = JSON.parse(sessionStorage.getItem('playerData'));
   }
 }

@@ -20,7 +20,7 @@ export class DominantComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.data = JSON.parse(localStorage.getItem('playerData'))['battles'];
+    this.data = JSON.parse(sessionStorage.getItem('playerData'))['battles'];
     this.filterDecks();
     this.filterCards();
     this.countCards();

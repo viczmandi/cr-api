@@ -30,7 +30,7 @@ export class CrApiService {
 
     return this.http.get(`${this.API_URL}/${playerTag}`, httpOptions)
       .pipe(
-        tap(playerData => localStorage.setItem('playerData', JSON.stringify(playerData)))
+        tap(playerData => sessionStorage.setItem('playerData', JSON.stringify(playerData)))
       );
   }
 }
