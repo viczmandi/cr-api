@@ -17,8 +17,8 @@ import { DominantComponent } from './dominant/dominant.component';
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
-  { path: 'player', component: PlayerComponent, canActivate: [VisitorGuard] },
-  { path: 'battles', component: BattlesComponent, canActivate: [VisitorGuard]  },
+  // { path: 'player', component: PlayerComponent, canActivate: [VisitorGuard] },
+  // { path: 'battles', component: BattlesComponent, canActivate: [VisitorGuard]  },
   { path: 'dominant', component: DominantComponent, canActivate: [VisitorGuard]  },
   { path: '', redirectTo: '/search', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }

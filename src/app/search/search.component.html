@@ -1,14 +1,15 @@
 <div class="jumbotron jumbotron-fluid search">
-  <div class="container">
+  <div class="container" *ngIf="!loading; else showLoader">
     <h1 class="display-4">Clash Royale API</h1>
     <p class="lead">Type your player tag in the search bar to see your ingame profile and statistics!</p>
-
     <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
       <div class="form-group">
         <input class="form-control" type="text" placeholder="Player tag" name="search" ngModel>
       </div>
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
-
   </div>
+  <ng-template #showLoader>
+      <div class="loader"></div>
+  </ng-template>
 </div>

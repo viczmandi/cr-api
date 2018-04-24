@@ -9,13 +9,16 @@ import { CrApiService } from '../cr-api.service';
 })
 export class SearchComponent implements OnInit {
 
+  loading:boolean = false;
+
   constructor(private router: Router, private crApiService: CrApiService) { }
 
   ngOnInit() { }
 
   onSubmit(form: any) {
+    this.loading = true;
     this.crApiService.getPlayerData(form.search).subscribe(() => {
-      this.router.navigate(["player"]);
+      this.router.navigate(["dominant"]);
     });
   }
 }

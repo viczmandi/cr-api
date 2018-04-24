@@ -18,7 +18,7 @@ export class CrApiService {
   constructor(private http: HttpClient) { }
 
   getPlayerData(playerTag: string) {
-    console.log("Player data fetching started in service");
+    console.log("Fetching player data started in service");
     // return this.http.get(`${this.API_URL}/${playerTag}`, httpOptions).subscribe(
     //   playerData => localStorage.setItem('playerData', JSON.stringify(playerData)),
     //   err => console.error(err),
